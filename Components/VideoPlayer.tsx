@@ -15,23 +15,31 @@ export const VideoPlayer = ({
 }: VideoPlayerProps) => {
     const [isPlaying, setIsPlaying] = useState(false);
     const [isImageLoading, setIsImageLoading] = useState(true);
+    const [playError, setPlayError] = useState<string | null>(null);
+
     const videoRef = useRef<HTMLVideoElement>(null);
     const imgRef = useRef<HTMLImageElement>(null);
 
     const handlePlay = () => {
+        const v = videoRef.current;
+        if (!v) return;
+
         setIsPlaying(true);
-        videoRef.current?.play();
+
+        const p = v.play();
+        if (p && typeof p.catch === 'function') {
+            p.catch(() => {
+                setIsPlaying(false);
+                // message
+            });
+        }
     };
 
-    const handleImageLoad = () => {
-        setIsImageLoading(false);
-    };
+    const handleImageLoad = () => setIsImageLoading(false);
 
     useEffect(() => {
         if (previewImage && imgRef.current) {
-            // Vérifier si l'image est déjà chargée (en cache)
             if (imgRef.current.complete) {
-                // Utiliser setTimeout pour éviter le rendu en cascade
                 setTimeout(() => setIsImageLoading(false), 0);
             }
         } else if (!previewImage) {
@@ -44,12 +52,14 @@ export const VideoPlayer = ({
             {!isPlaying && (
                 <div
                     className='absolute inset-0 cursor-pointer flex items-center justify-center bg-black/30'
-                    onClick={handlePlay}>
+                    onClick={handlePlay}
+                    role='button'
+                    aria-label={title ? `Lire ${title}` : 'Lire la vidéo'}>
                     {previewImage ? (
                         <>
                             {isImageLoading && (
                                 <div className='absolute inset-0 flex items-center justify-center bg-gray-900'>
-                                    <div className='w-16 h-16 border-4 border-yellow-400 border-t-transparent rounded-full animate-spin'></div>
+                                    <div className='w-16 h-16 border-4 border-yellow-400 border-t-transparent rounded-full animate-spin' />
                                 </div>
                             )}
                             <img
@@ -66,10 +76,13 @@ export const VideoPlayer = ({
                     ) : (
                         <div className='w-full h-full bg-gradient-to-br from-gray-800 to-gray-900' />
                     )}
-                    <div className='absolute inset-0 bg-black/20'></div>
+
+                    <div className='absolute inset-0 bg-black/20' />
+
                     {!isImageLoading && (
                         <button
-                            className='absolute z-10 w-20 h-20 rounded-full bg-white/70 hover:bg-white transition-all duration-200 flex items-center justify-center shadow-lg hover:scale-105 hover:cursor-pointer'
+                            type='button'
+                            className='absolute z-10 w-20 h-20 rounded-full bg-white/70 hover:bg-white transition-all duration-200 flex items-center justify-center shadow-lg hover:scale-105'
                             aria-label='Play video'>
                             <svg
                                 className='w-8 h-8 text-gray-900 ml-1'
@@ -79,15 +92,24 @@ export const VideoPlayer = ({
                             </svg>
                         </button>
                     )}
+
+                    {playError && (
+                        <div className='absolute bottom-3 left-3 right-3 z-20 text-sm bg-black/70 text-white p-2 rounded'>
+                            {playError}
+                        </div>
+                    )}
                 </div>
             )}
+
             <video
                 ref={videoRef}
-                src={videoSrc}
                 className='w-full h-full object-cover'
                 controls
+                playsInline
                 preload='metadata'
-            />
+                poster={previewImage}>
+                <source src={videoSrc} type='video/mp4' />
+            </video>
         </div>
     );
 };
