@@ -23,7 +23,7 @@ export default function Home() {
                     Kildine & Jeremie
                 </h2>
                 <VideoPlayer
-                    videoSrc='/https://github.com/Benjamin-V-Dev/wedding.provision-gv.fr/releases/download/media-v1/Kildine.Jeremie.mp4'
+                    videoSrc='https://github.com/Benjamin-V-Dev/wedding.provision-gv.fr/releases/download/media-v1/Kildine.Jeremie.mp4'
                     previewImage='/Vignette-video-2.webp'
                     title='Vidéo n°1 - Kildine & Jeremie'
                 />
@@ -33,7 +33,7 @@ export default function Home() {
                     Sarah & Stépahe
                 </h2>
                 <VideoPlayer
-                    videoSrc='/https://github.com/Benjamin-V-Dev/wedding.provision-gv.fr/releases/download/media-v1/Stepahe.Sarah.mp4'
+                    videoSrc='https://github.com/Benjamin-V-Dev/wedding.provision-gv.fr/releases/download/media-v1/Stepahe.Sarah.mp4'
                     previewImage='/Vignette-video-3.webp'
                     title='Vidéo n°1 - Sarah & Stépahe'
                 />
