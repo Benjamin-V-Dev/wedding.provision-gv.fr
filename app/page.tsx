@@ -13,9 +13,9 @@ export default function Home() {
                     Judith & Guillaume
                 </h2>
                 <VideoPlayer
-                    videoSrc='https://mkxd2uvlndtzjkfb.public.blob.vercel-storage.com/Video-1.mp4'
+                    videoSrc='https://github.com/Benjamin-V-Dev/wedding.provision-gv.fr/releases/download/media-v1/Guillaume.Judith.mp4'
                     previewImage='/Vignette-video-1.webp'
-                    title='Vidéo n°1 - Blablabla'
+                    title='Vidéo n°1 - Judith & Guillaume'
                 />
             </section>
             <section>
@@ -23,9 +23,9 @@ export default function Home() {
                     Kildine & Jeremie
                 </h2>
                 <VideoPlayer
-                    videoSrc='/https://mkxd2uvlndtzjkfb.public.blob.vercel-storage.com/Video-2.mp4'
+                    videoSrc='/https://github.com/Benjamin-V-Dev/wedding.provision-gv.fr/releases/download/media-v1/Kildine.Jeremie.mp4'
                     previewImage='/Vignette-video-2.webp'
-                    title='Vidéo n°1 - Blablabla'
+                    title='Vidéo n°1 - Kildine & Jeremie'
                 />
             </section>
             <section>
@@ -33,9 +33,9 @@ export default function Home() {
                     Sarah & Stépahe
                 </h2>
                 <VideoPlayer
-                    videoSrc='/https://mkxd2uvlndtzjkfb.public.blob.vercel-storage.com/Video-3.mp4'
+                    videoSrc='/https://github.com/Benjamin-V-Dev/wedding.provision-gv.fr/releases/download/media-v1/Stepahe.Sarah.mp4'
                     previewImage='/Vignette-video-3.webp'
-                    title='Vidéo n°1 - Blablabla'
+                    title='Vidéo n°1 - Sarah & Stépahe'
                 />
             </section>
         </main>
