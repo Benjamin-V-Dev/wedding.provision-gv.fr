@@ -27,7 +27,7 @@ const dmSerifText = DM_Serif_Text({
 
 export const metadata: Metadata = {
     title: 'VALLON Guillaume - Vidéographer',
-    description: 'Découvrez mes réalisations de vidéo de mariage',
+    description: 'Découvrez mes réalisations de vidéos de mariage',
     icons: {
         icon: '/favicon.png',
     },

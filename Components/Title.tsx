@@ -15,7 +15,7 @@ export const DrawCircleText = () => {
                         viewBox='0 0 286 73'
                         fill='none'
                         aria-hidden='true'
-                        className='absolute left-0 right-0 bottom-0 z-0 h-[1.35em] w-[calc(100%+1rem)] -translate-x-2'>
+                        className='absolute left-0 right-0 -bottom-1 z-0 h-[2em] w-[calc(100%+1rem)] -translate-x-2'>
                         <motion.path
                             initial={{ pathLength: 0 }}
                             animate={{ pathLength: 1 }}
