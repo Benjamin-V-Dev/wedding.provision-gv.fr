@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+
+body {
+  @apply bg-gray-900 text-white flex flex-col min-h-screen;
+}
+
+body > div {
+  @apply flex-1 max-w-7xl w-full mx-auto px-[5%];
+}
+
+main {
+  @apply max-w-7xl mx-auto;
+}
+
+section {
+  @apply my-[5%];
+}
